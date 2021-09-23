@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let nbrRow = 2
     let nbrCol = 3;
 
-    let pix = new Array("img/ronaldo-minion.jpg", "img/messi-minion.jpg", "img/rio.jpg");
+    let pix = new Array("./img/koala.jpg", "img/agneau.jpg", "img/rinho.jpg");
 
 
     createColRow(nbrRow, nbrCol);
-
     choosePix(pix)
+
 });
 
 
@@ -58,4 +58,8 @@ function choosePix(imgArray) {
 
         !inArray(imgRand, arraySave) ?  arraySave.push(imgRand) :  deleteItem(imgRand, imgArray);
     })
+}
+
+function play() {
+
 }
