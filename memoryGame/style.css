@@ -1,11 +1,11 @@
 body{
-    background: aquamarine;
+    background: #d3faed;
 }
 h1  {
     text-align: center;
 }
 table{
-    position:absolute;
+    /*position:absolute;*/
 
     /*width:70%;*/
     /*margin-left:15%;*/
@@ -17,16 +17,16 @@ table{
     width: 200px;
     height: 200px;
     background-color: white;
-
 }
-table td{
-    overflow: hidden;
-}
-
-
 img{
+    width: 100%;
+    height: 100%;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
 }
-img:hover {
-    position:relative;
+
+.col-td:hover{
+    border: black solid 1px;
 }

@@ -5,12 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let pix = new Array("./img/koala.jpg", "img/agneau.jpg", "img/rinho.jpg");
 
-
-    createColRow(nbrRow, nbrCol);
-    choosePix(pix)
+    play(nbrRow, nbrCol, pix);
+    // createColRow(nbrRow, nbrCol);
+    // choosePix(pix)
+   
 
 });
-
 
 let table = document.getElementById('memoryTable');
 
@@ -27,13 +27,16 @@ function createColRow(nbrRow, nbrCol) {
             let col = document.createElement('td');
             col.setAttribute('class', 'col-td');
             col.classList.add('col-td');
+            // let img = document.createElement('img');
+            // col.innerHTML = `<img src="./img/fleche.png" alt="img">`
             row.appendChild(col);
+
         }
         table.appendChild(row);
     }
 }
 
-function inArray(item, array) {
+function chekInArray(item, array) {
     for (let i = 0; i < array.length; i++) {
         if (item == array[i]) {
             return true;
@@ -44,7 +47,7 @@ function inArray(item, array) {
 
 function deleteItem(ingRand, imgArray) {
     for (var i = imgArray.length - 1; i >= 0; i--) {
-        if (imgArray[i] === ingRand  ) {
+        if (imgArray[i] === ingRand) {
             imgArray.splice(i, 1);
         }
     }
@@ -53,13 +56,34 @@ function deleteItem(ingRand, imgArray) {
 function choosePix(imgArray) {
     let arraySave = [];
     document.querySelectorAll('.col-td').forEach(td => {
-        let imgRand = imgArray[Number(Math.floor(Math.random() * imgArray.length))];
+            let imgRand = imgArray[Number(Math.floor(Math.random() * imgArray.length))];
         td.innerHTML = `<img src="${imgRand}" alt="img">` ;
-
-        !inArray(imgRand, arraySave) ?  arraySave.push(imgRand) :  deleteItem(imgRand, imgArray);
+        !chekInArray(imgRand, arraySave) ? arraySave.push(imgRand) : deleteItem(imgRand, imgArray);
     })
 }
+function showImg(img) {
 
-function play() {
+}
+
+function checkSameItem(img) {
+    img.forEach()
+}
+
+function play(nbrRow, nbrCol, img) {
+    createColRow(nbrRow, nbrCol);
+    // cont >= 1 ? choosePix(img) : img.style.display = 'none' ;
+    // img.style.display = 'none'
+
+    // .onclick = function() {
+    //     choosePix(img)
+    // }
+    document.querySelector('.col-td').addEventListener("click", function (e){
+        console.log("click")
+        e.preventDefault();
+    })
+    // td.addEventListener('click', () => {
+    //     // console.log("clicked element");
+    //     choosePix(imgArray)
+    // })
 
 }
