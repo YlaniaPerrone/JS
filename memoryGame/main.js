@@ -25,7 +25,7 @@ function createColRow(nbrRow, nbrCol) {
 
         for (let j = 0; j < nbrCol; j++) {
             let col = document.createElement('td');
-            // col.setAttribute('class', 'col-td');
+            col.setAttribute('class', 'col-td');
             col.classList.add('col-td');
             row.appendChild(col);
         }

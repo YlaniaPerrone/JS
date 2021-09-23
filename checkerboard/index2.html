@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="checkerboard"></table>
+<br>
+<table id="checkerboard1"></table>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let checkerboard = document.getElementById('checkerboard');
+        let checkerboard1 = document.getElementById('checkerboard1');
+
+        // console.log(range(10))
+        // console.log(getCheckerboard(10))
+        // console.log(getCheckerboard_longVersion(10))
+        let nbrOfCheckerboard = parseInt(prompt('Number of Checkerboard '));
+
+        printCheckerboard_longVersion(checkerboard, nbrOfCheckerboard, 90)
+        printCheckerboard(checkerboard1, 8, 110)
+    });
+
+
+    //========================================================================================
+    //                             *** expert version ***
+    //========================================================================================
+
+    /**
+     * @param {number} number
+     */
+    function range(number) {
+        return [...Array(number).keys()]
+    }
+
+    /**
+     * @param {number} numberSquare
+     */
+    function getCheckerboard(numberSquare) {
+        return range(numberSquare).map((_, i) => {
+            return range(numberSquare).map((_, j) => {
+                return (i + j) % 2;
+            });
+        });
+    }
+
+    /**
+     *
+     * @param idSelect
+     * @param {number} numberSquare
+     * @return void
+     */
+    function printCheckerboard(idSelect, numberSquare, size) {
+        getCheckerboard(numberSquare).forEach((row, key) => {
+            let tr = document.createElement('tr');
+
+            row.forEach((value, index) => {
+                let color = value ? 'red' : 'black';
+                let td    = square(size, color)
+                tr.appendChild(td);
+            });
+
+            idSelect.append(tr);
+        });
+    }
+
+    /**
+     * @param {number} size
+     * @param {string} color
+     */
+    function square(size, color) {
+        let td = document.createElement('td');
+
+        td.setAttribute('width', size + 'px');
+        td.setAttribute('height', size + 'px');
+        td.setAttribute("style",'background-color: '+ color);
+
+        return td;
+    }
+
+    //=======================================================================================
+    //                               *** regular version ***
+    //=======================================================================================
+
+    /**
+     * @param {number} numberSquare
+     */
+    function getCheckerboard_longVersion(numberSquare) {
+        let checkerboard = [];
+
+        for (let i = 0; i < numberSquare; i++) {
+            let data = [];
+
+            for (let j = 0; j < numberSquare; j++) {
+                data.push((i + j) % 2);
+            }
+            checkerboard[i] = data;
+        }
+
+        return checkerboard;
+    }
+
+    /**
+     *
+     * @param idSelect
+     * @param {number} numberSquare
+     * @return void
+     */
+    function printCheckerboard_longVersion(idSelect, numberSquare, size) {
+        let checkerboard = getCheckerboard_longVersion(numberSquare);
+        console.info(checkerboard);
+        checkerboard.forEach((row, key) => {
+            console.warn(row, key)
+            let tr = document.createElement('tr');
+
+            row.forEach((value, index) => {
+                let td    = document.createElement('td');
+                let color = value ? 'black': 'red';
+
+                td.setAttribute('width', size + 'px');
+                td.setAttribute('height', size + 'px');
+                td.setAttribute('style','background-color: '+ color);
+                tr.appendChild(td);
+            });
+
+            idSelect.append(tr);
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
