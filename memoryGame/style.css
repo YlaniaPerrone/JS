@@ -50,6 +50,8 @@ img{
 
 /*btn play*/
 .btnPlay{
+    display: block;
+    margin: 25px auto auto;
     width: 80px;
     height: 30px;
     color: white;
