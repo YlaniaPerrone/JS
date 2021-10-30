@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     let nbrRow = 2
     let nbrCol = 3;
 
-    let pix = new Array("./img/koala.jpg", "img/agneau.jpg", "img/rinho.jpg");
+    let pix = new Array("./img/koala.jpg", "./img/agneau.jpg", "./img/rinho.jpg");
 
     play(nbrRow, nbrCol, pix);
-    // createColRow(nbrRow, nbrCol);
+    createColRow(nbrRow, nbrCol);
     // choosePix(pix)
-   
+
 
 });
 
@@ -38,14 +38,14 @@ function createColRow(nbrRow, nbrCol) {
 
 function chekInArray(item, array) {
     for (let i = 0; i < array.length; i++) {
-        if (item == array[i]) {
+        if (item === array[i]) {
             return true;
         }
     }
     return false;
 }
 
-function deleteItem(ingRand, imgArray) {
+function deleteItem(imgRand, imgArray) {
     for (var i = imgArray.length - 1; i >= 0; i--) {
         if (imgArray[i] === ingRand) {
             imgArray.splice(i, 1);
@@ -70,20 +70,20 @@ function checkSameItem(img) {
 }
 
 function play(nbrRow, nbrCol, img) {
-    createColRow(nbrRow, nbrCol);
+    // createColRow(nbrRow, nbrCol);
+
+    document.querySelector('.btnPlay').addEventListener("click", function (e){
+        choosePix(img)
+            e.preventDefault();
+        })
+
     // cont >= 1 ? choosePix(img) : img.style.display = 'none' ;
     // img.style.display = 'none'
 
-    // .onclick = function() {
-    //     choosePix(img)
-    // }
-    document.querySelector('.col-td').addEventListener("click", function (e){
-        console.log("click")
-        e.preventDefault();
-    })
-    // td.addEventListener('click', () => {
-    //     // console.log("clicked element");
-    //     choosePix(imgArray)
+    // document.querySelector('.col-td').addEventListener("click", function (e){
+    //     console.log("click")
+    //     e.preventDefault();
     // })
+
 
 }
