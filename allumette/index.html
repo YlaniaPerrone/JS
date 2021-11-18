@@ -6,12 +6,28 @@
 </head>
 <body>
 
-<label for="IdNbrAllumette"> Nombre d'allumettes ?</label>
-<input id="IdNbrAllumette" name="nbrAllumette" type="number">
+<div class="container">
 
-<span name="error"></span>
+    <div class="play">
+        <button class="btnPlay">Play</button>
+        <input type="text" class="nbrtoDelete">
+    </div>
+    <h1></h1>
+    <div class="choiceNbrAllumette">
+        <label for="IdNbrAllumette"> Nombre d'allumettes ?</label>
+        <input id="IdNbrAllumette" name="nbrAllumette" type="number" placeholder=" 5 min - 20 max">
+    </div>
 
-<div class="ShowAllum" name="ShowNbrAllumette" id="ShowNbrAllumette"></div>
+    <span name="error" class="error"></span>
+
+    <div class="ShowAllum" name="ShowNbrAllumette" id="ShowNbrAllumette"></div>
+</div>
+<div class="info">
+    <div ><p class="nbrAllumetteDeleted"></p></div>
+    <hr>
+    <p class="choiceComputer"></p>
+    <p class="choiceUser"></p>
+</div>
 
 <script src="main.js" type="text/javascript"></script>
 
